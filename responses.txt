@@ -1,0 +1,22 @@
+curl -X 'POST' \
+  'https://mxe-app-api-9310279ef7f3.herokuapp.com/auth/UserSignup' \
+  -H 'accept: */*' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "phoneNumber": "09034020909"
+}'
+success
+{
+  "success": true,
+  "code": 200,
+  "message": "Proceed to Verification",
+  "data": {
+    "userid": "65ef4674d145b2f1918f1c2a"
+  }
+}
+failure
+{
+  "message": "Missing required field(s): 'phoneNumber'",
+  "error": "Bad Request",
+  "statusCode": 400
+}
