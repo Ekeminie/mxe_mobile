@@ -58,15 +58,17 @@ AppBar customAppBar(String title,
   );
 }
 
-Widget actionWidget(String title, Function() action) => GestureDetector(
+Widget actionWidget(String title, Function() action,
+        {Color? bgColor, Color? textColor}) =>
+    GestureDetector(
       behavior: HitTestBehavior.opaque,
       onTap: action,
       child: Container(
         height: 20,
         margin: EdgeInsets.symmetric(horizontal: 16.w, vertical: 5),
-        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
+        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 1.h),
         decoration: BoxDecoration(
-            color: AppColors.subtleAccent,
+            color: bgColor ?? AppColors.subtleAccent,
             borderRadius: BorderRadius.circular(12)),
         child: Center(
           child: Text(
@@ -74,7 +76,7 @@ Widget actionWidget(String title, Function() action) => GestureDetector(
             style: GoogleFonts.plusJakartaSans(
                 fontSize: 16,
                 fontWeight: FontWeight.w700,
-                color: AppColors.boldSemantic),
+                color: textColor ?? AppColors.boldSemantic),
           ),
         ),
       ),

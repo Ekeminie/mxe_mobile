@@ -44,19 +44,24 @@ class _CryptoWalletPageState extends State<CryptoWalletPage> {
                     builder: (context, user, _) => Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Row(
-                          children: [
-                            Text(
-                              "Wallet A ${user.firstName}",
-                              style: GoogleFonts.plusJakartaSans(
-                                  fontSize: 18, fontWeight: FontWeight.w700),
-                            ),
-                            14.sbW,
-                            SvgPicture.asset(
-                              'chevron-down'.svg,
-                              color: AppColors.bgContrast,
-                            )
-                          ],
+                        GestureDetector(
+                          behavior: HitTestBehavior.opaque,
+                          onTap: () => Navigator.pushNamed(
+                              context, Routes.viewCryptoWalletsPage),
+                          child: Row(
+                            children: [
+                              Text(
+                                "Wallet A ${user.firstName}",
+                                style: GoogleFonts.plusJakartaSans(
+                                    fontSize: 18, fontWeight: FontWeight.w700),
+                              ),
+                              14.sbW,
+                              SvgPicture.asset(
+                                'chevron-down'.svg,
+                                color: AppColors.bgContrast,
+                              )
+                            ],
+                          ),
                         ),
                         12.sbH,
                         Row(

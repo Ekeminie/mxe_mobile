@@ -151,4 +151,9 @@ class Routes {
   ///Crypto Routes
   static const String cryptoOnboarding = '/cryptoOnboarding';
   static const String cryptoHome = '/cryptoHome';
+  static const String cryptoNavDrawerRoute = '/cryptoNavDrawerRoute';
+  static const String cryptoNotificationsPageRoute =
+      '/cryptoNotificationsPageRoute';
+  static const String viewCryptoWalletsPage = '/viewCryptoWalletsPage';
+  static const String manageCryptoWallet = '/manageCryptoWallet';
 }

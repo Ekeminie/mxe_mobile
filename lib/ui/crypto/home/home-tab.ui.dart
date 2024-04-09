@@ -76,7 +76,8 @@ class _CryptoHomePageState extends State<CryptoHomePage>
                         14.sbW,
                         GestureDetector(
                           onTap: () {
-                            Navigator.pushNamed(context, Routes.navDrawerRoute);
+                            Navigator.pushNamed(
+                                context, Routes.cryptoNavDrawerRoute);
                           },
                           child: SvgPicture.asset('menu-icon'.svg),
                         ),
@@ -151,7 +152,7 @@ class _CryptoHomePageState extends State<CryptoHomePage>
                     actions: [
                       InkWell(
                         onTap: () => Navigator.pushNamed(
-                            context, Routes.notificationsPageRoute),
+                            context, Routes.cryptoNotificationsPageRoute),
                         child: SvgPicture.asset('notification-icon'.svg),
                       ),
                       14.sbW

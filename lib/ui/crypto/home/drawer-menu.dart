@@ -3,20 +3,21 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mxe_mobile/core/styles/color-styles.dart';
+import 'package:mxe_mobile/core/styles/textstyles.dart';
 import 'package:mxe_mobile/routes/routes.dart';
 import 'package:mxe_mobile/ui/home/finance/finance.ui.dart';
 import 'package:mxe_mobile/utils/string-extensions.dart';
 import 'package:mxe_mobile/utils/widget_extensions.dart';
 import 'package:mxe_mobile/widgets/theme-mode-bottomsheet.dart';
 
-class NavDrawerMenu extends StatefulWidget {
-  const NavDrawerMenu({super.key});
+class CryptoNavDrawerMenu extends StatefulWidget {
+  const CryptoNavDrawerMenu({super.key});
 
   @override
-  State<NavDrawerMenu> createState() => _NavDrawerMenuState();
+  State<CryptoNavDrawerMenu> createState() => _CryptoNavDrawerMenuState();
 }
 
-class _NavDrawerMenuState extends State<NavDrawerMenu> {
+class _CryptoNavDrawerMenuState extends State<CryptoNavDrawerMenu> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,7 +41,6 @@ class _NavDrawerMenuState extends State<NavDrawerMenu> {
           mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            32.sbH,
             Text(
               "MXE",
               style: GoogleFonts.plusJakartaSans(
@@ -48,47 +48,31 @@ class _NavDrawerMenuState extends State<NavDrawerMenu> {
                   fontWeight: FontWeight.w700,
                   fontSize: 24.sp),
             ),
-            16.sbH,
+            8.sbH,
             const Divider(),
-            42.sbH,
-            Text(
-              "Account Management",
-              style: GoogleFonts.plusJakartaSans(
-                  color: AppColors.bgContrast,
-                  fontWeight: FontWeight.w700,
-                  fontSize: 16.sp),
-            ),
+            32.sbH,
+            const Text("Quick Actions", style: AppTextStyle.headingHeading4),
             18.sbH,
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
+                ActionItem(title: "Sell", icon: 'c_sell', onTap: () {}),
                 ActionItem(
-                    title: "My Profile", icon: 'my-profile', onTap: () {}),
-                ActionItem(
-                    title: "Insights",
-                    icon: 'insights',
+                    title: "Send",
+                    icon: 'c_send',
                     onTap: () => Navigator.pushReplacementNamed(
                         context, Routes.insightsPageRoute)),
-                ActionItem(title: "FAQ", icon: 'faq', onTap: () {}),
-                ActionItem(
-                    title: "Statement of Account",
-                    icon: 'account-statement',
-                    onTap: () {}),
+                ActionItem(title: "Receive", icon: 'c_receive', onTap: () {}),
+                ActionItem(title: "Swap", icon: 'c_swap', onTap: () {}),
               ],
             ),
             32.sbH,
             const Divider(),
             24.sbH,
-            Text(
-              "Connect with us",
-              style: GoogleFonts.plusJakartaSans(
-                  color: AppColors.bgContrast,
-                  fontWeight: FontWeight.w700,
-                  fontSize: 16.sp),
-            ),
+            const Text("Connect with us", style: AppTextStyle.headingHeading4),
             16.sbH,
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 ActionItem(title: "Instagram", icon: 'instagram', onTap: () {}),
                 ActionItem(title: "Facebook", icon: 'facebook', onTap: () {}),
@@ -99,16 +83,10 @@ class _NavDrawerMenuState extends State<NavDrawerMenu> {
             32.sbH,
             const Divider(),
             24.sbH,
-            Text(
-              "More",
-              style: GoogleFonts.plusJakartaSans(
-                  color: AppColors.bgContrast,
-                  fontWeight: FontWeight.w700,
-                  fontSize: 16.sp),
-            ),
+            const Text("More", style: AppTextStyle.headingHeading4),
             16.sbH,
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 ActionItem(title: "Community", icon: 'more', onTap: () {}),
                 ActionItem(title: "About MXE", icon: 'about-mxe', onTap: () {}),
@@ -132,8 +110,8 @@ class _NavDrawerMenuState extends State<NavDrawerMenu> {
             const Divider(),
             24.sbH,
             ActionItem(title: "Logout", icon: 'logout', onTap: () {}),
-            Spacer(),
-            Divider(),
+            const Spacer(),
+            const Divider(),
             8.sbH,
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

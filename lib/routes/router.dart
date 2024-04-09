@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mxe_mobile/core/model/airtime-and-data-beneficiary-response.dart';
 import 'package:mxe_mobile/core/model/request/auth.dart';
 import 'package:mxe_mobile/core/model/withdrawal-beneficiary-response.dart';
+import 'package:mxe_mobile/routes/router-utils.dart';
 import 'package:mxe_mobile/routes/routes.dart';
 import 'package:mxe_mobile/ui/auth/create-pin/confirm-pin.ui.dart';
 import 'package:mxe_mobile/ui/auth/create-pin/create-pin.dart';
@@ -31,7 +32,11 @@ import 'package:mxe_mobile/ui/cards/create-card/create-card.ui.dart';
 import 'package:mxe_mobile/ui/cards/topup.ui.dart';
 import 'package:mxe_mobile/ui/cards/withdraw.ui.dart';
 import 'package:mxe_mobile/ui/crypto/home/bottom_nav_page.dart';
+import 'package:mxe_mobile/ui/crypto/home/drawer-menu.dart';
+import 'package:mxe_mobile/ui/crypto/home/wallet/manage-wallet.dart';
+import 'package:mxe_mobile/ui/crypto/home/wallet/view-wallet.dart';
 import 'package:mxe_mobile/ui/crypto/intro/crypto-onboarding.dart';
+import 'package:mxe_mobile/ui/crypto/notifications/crypto-notifications.io.dart';
 import 'package:mxe_mobile/ui/home/bottom_nav_page.dart';
 import 'package:mxe_mobile/ui/home/convert/conversion-success.dart';
 import 'package:mxe_mobile/ui/home/convert/convert.ui.dart';
@@ -265,6 +270,19 @@ class Routers {
         return MaterialPageRoute(builder: (_) => const CryptoOnboarding());
       case Routes.cryptoHome:
         return MaterialPageRoute(builder: (_) => const CryptoBottomNavPage());
+      case Routes.viewCryptoWalletsPage:
+        return MaterialPageRoute(builder: (_) => const ViewCryptoWallet());
+      case Routes.cryptoNotificationsPageRoute:
+        return transitionBuilder(
+            child: const CryptoNotifications(), begin: const Offset(0.5, 0));
+
+      case Routes.cryptoNavDrawerRoute:
+        return transitionBuilder(
+            child: const CryptoNavDrawerMenu(), begin: const Offset(-1, 0.0));
+      case Routes.manageCryptoWallet:
+        return transitionBuilder(
+            child: const ManageCryptoWallet(), begin: const Offset(0.5, 0));
+
       default:
         return MaterialPageRoute(builder: (_) => const PhoneNumberAuthPage());
     }
