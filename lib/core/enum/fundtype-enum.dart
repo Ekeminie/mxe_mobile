@@ -1,3 +1,5 @@
+import 'package:mxe_mobile/constant/constants.dart';
+
 enum FundType {
   cardPayment(
       title: "Pay with your card",
@@ -110,4 +112,16 @@ enum TransferCurrency {
   final String? icon;
   final String? code;
   const TransferCurrency({this.title, this.icon, this.code});
+}
+
+enum GiftCardCurrencyEnum {
+  ngn(title: "United Kingdom", icon: 'uk', code: "GBP", symbol: "£"),
+  usd(title: "United States", icon: 'us', code: "USD", symbol: "\$"),
+  gbp(title: "Nigerian Naira", icon: 'ngn', code: "NGN", symbol: nairaSign);
+
+  final String? title;
+  final String? icon;
+  final String? code;
+  final String? symbol;
+  const GiftCardCurrencyEnum({this.title, this.icon, this.code, this.symbol});
 }

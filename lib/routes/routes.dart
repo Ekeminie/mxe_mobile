@@ -156,4 +156,10 @@ class Routes {
       '/cryptoNotificationsPageRoute';
   static const String viewCryptoWalletsPage = '/viewCryptoWalletsPage';
   static const String manageCryptoWallet = '/manageCryptoWallet';
+  static const String backUpCryptoWallet = '/backUpCryptoWallet';
+  static const String currencyViewPageRoute = '/currencyViewPageRoute';
+  static const String aboutCurrencyPage = '/aboutCurrencyPage';
+  static const String giftCardDetailsPage = '/giftCardDetailsPage';
+  static const String addAccountPageRoute = '/addAccountPageRoute';
+  static const String giftCardSuccessPage = '/giftCardSuccessPage';
 }

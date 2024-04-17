@@ -87,7 +87,12 @@ class _CryptoWalletPageState extends State<CryptoWalletPage> {
                     fontWeight: FontWeight.w700, fontSize: 32),
               ),
               if (showBackup) 16.sbH,
-              if (showBackup) SvgPicture.asset("backup-info".svg),
+              if (showBackup)
+                GestureDetector(
+                    behavior: HitTestBehavior.opaque,
+                    onTap: () =>
+                        Navigator.pushNamed(context, Routes.backUpCryptoWallet),
+                    child: SvgPicture.asset("backup-info".svg)),
               24.sbH,
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15),

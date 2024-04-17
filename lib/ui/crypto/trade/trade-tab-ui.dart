@@ -7,23 +7,23 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:mxe_mobile/base.ui.dart';
 import 'package:mxe_mobile/core/styles/color-styles.dart';
 import 'package:mxe_mobile/routes/routes.dart';
-import 'package:mxe_mobile/ui/crypto/home/home-tab.vm.dart';
-import 'package:mxe_mobile/ui/crypto/home/wallet/wallet.ui.dart';
-import 'package:mxe_mobile/ui/home/finance/finance.ui.dart';
+import 'package:mxe_mobile/ui/crypto/trade/crypto-trade/crypto-trade.ui.dart';
+import 'package:mxe_mobile/ui/crypto/trade/giftcard-trade/giftcard-trade.ui.dart';
+import 'package:mxe_mobile/ui/crypto/trade/trade-tab.vm.dart';
 import 'package:mxe_mobile/utils/string-extensions.dart';
 import 'package:mxe_mobile/utils/widget_extensions.dart';
 import 'package:mxe_mobile/widgets/statefull-wrapper.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
-class CryptoHomePage extends StatefulWidget {
+class TradePage extends StatefulWidget {
   final Function()? function;
-  const CryptoHomePage({Key? key, this.function}) : super(key: key);
+  const TradePage({Key? key, this.function}) : super(key: key);
 
   @override
-  _CryptoHomePageState createState() => _CryptoHomePageState();
+  _TradePageState createState() => _TradePageState();
 }
 
-class _CryptoHomePageState extends State<CryptoHomePage>
+class _TradePageState extends State<TradePage>
     with SingleTickerProviderStateMixin {
   @override
   void initState() {
@@ -42,7 +42,7 @@ class _CryptoHomePageState extends State<CryptoHomePage>
 
   @override
   Widget build(BuildContext context) {
-    return BaseView<CryptoHomeTabViewModel>(
+    return BaseView<TradeHomeViewModel>(
       // useTouchListener: false,
       onModelReady: (m) => {_tabController.animateTo(m.selectedIndex)},
       builder: (context, model, child) => StatefulWrapper(
@@ -124,7 +124,7 @@ class _CryptoHomePageState extends State<CryptoHomePage>
                                   padding: EdgeInsets.symmetric(
                                       horizontal: 8.w, vertical: 4.h),
                                   child: AutoSizeText(
-                                    'Finance',
+                                    'Crypto',
                                     style: GoogleFonts.plusJakartaSans(
                                       fontWeight: FontWeight.w700,
                                     ),
@@ -136,7 +136,7 @@ class _CryptoHomePageState extends State<CryptoHomePage>
                                   padding: EdgeInsets.symmetric(
                                       horizontal: 6.w, vertical: 2.h),
                                   child: AutoSizeText(
-                                    'Wallet',
+                                    'GiftCard',
                                     style: GoogleFonts.plusJakartaSans(
                                       fontWeight: FontWeight.w700,
                                     ),
@@ -152,7 +152,7 @@ class _CryptoHomePageState extends State<CryptoHomePage>
                       InkWell(
                         onTap: () => Navigator.pushNamed(
                             context, Routes.cryptoNotificationsPageRoute),
-                        child: SvgPicture.asset('notification-icon'.svg),
+                        child: SvgPicture.asset('search'.svg),
                       ),
                       14.sbW
                     ],
@@ -161,7 +161,7 @@ class _CryptoHomePageState extends State<CryptoHomePage>
                     controller: _scrollController,
                     body: TabBarView(
                       controller: _tabController,
-                      children: const [FinancePage(), CryptoWalletPage()],
+                      children: const [CryptoTradePage(), GiftCardTrade()],
                     ),
                     headerSliverBuilder:
                         (BuildContext context, bool innerBoxIsScrolled) {

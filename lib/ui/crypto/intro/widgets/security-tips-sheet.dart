@@ -10,8 +10,10 @@ import 'package:mxe_mobile/widgets/custom_btn.dart';
 import 'package:mxe_mobile/widgets/header-widget.dart';
 
 class SecurityTipsSheet extends StatelessWidget {
+  final num pageIndex;
   final Function() onSubmit;
-  const SecurityTipsSheet({super.key, required this.onSubmit});
+  const SecurityTipsSheet(
+      {super.key, required this.onSubmit, this.pageIndex = 0});
 
   @override
   Widget build(BuildContext context) {
@@ -20,104 +22,284 @@ class SecurityTipsSheet extends StatelessWidget {
       child: Scaffold(
         appBar:
             customAppBar("", bgColor: AppColors.bgColor, showBackButton: false),
-        body: SingleChildScrollView(
-          child: ClipRRect(
-            borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(20), topRight: Radius.circular(20)),
-            child: Container(
-              height: height(context) - 100,
-              padding: EdgeInsets.only(
-                  // right: 20,
-                  // left: 20,
-                  bottom: MediaQuery.of(context).viewInsets.bottom),
-              color: AppColors.bgColor,
-              // height: 500,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(
-                    horizontal: 16.0, vertical: 20.0),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const BackButton(),
-                    Center(child: SvgPicture.asset('security-tips'.svg)),
-                    16.0.sbH,
-                    header("Security Tips", usePadding: false),
-                    24.0.sbH,
-                    Container(
-                      padding: const EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                          color: AppColors.white,
-                          borderRadius: BorderRadius.circular(8)),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Flexible(
-                            child: AutoSizeText(
-                              "Beware of Scams",
-                              style: AppTextStyle.labelMdBold
-                                  .copyWith(color: AppColors.bgContrast),
-                              textAlign: TextAlign.left,
+        body: Builder(
+          builder: (context) {
+            switch (pageIndex) {
+              case 0:
+                return SingleChildScrollView(
+                  child: ClipRRect(
+                    borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(20),
+                        topRight: Radius.circular(20)),
+                    child: Container(
+                      height: height(context) - 100,
+                      padding: EdgeInsets.only(
+                          // right: 20,
+                          // left: 20,
+                          bottom: MediaQuery.of(context).viewInsets.bottom),
+                      color: AppColors.bgColor,
+                      // height: 500,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 16.0, vertical: 20.0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const BackButton(),
+                            Center(
+                                child: SvgPicture.asset('security-tips'.svg)),
+                            16.0.sbH,
+                            header("Security Tips", usePadding: false),
+                            24.0.sbH,
+                            Container(
+                              padding: const EdgeInsets.all(8),
+                              decoration: BoxDecoration(
+                                  color: AppColors.white,
+                                  borderRadius: BorderRadius.circular(8)),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Flexible(
+                                    child: AutoSizeText(
+                                      "Beware of Scams",
+                                      style: AppTextStyle.labelMdBold.copyWith(
+                                          color: AppColors.bgContrast),
+                                      textAlign: TextAlign.left,
+                                    ),
+                                  ),
+                                  12.sbH,
+                                  Flexible(
+                                    child: AutoSizeText(
+                                      "Don’t import any unfamiliar seed phrase or private key. MXE will never provide such information and if anyone does, beware of potential scams.",
+                                      style: AppTextStyle.labelMdRegular
+                                          .copyWith(
+                                              color: AppColors.bgContrast),
+                                      textAlign: TextAlign.left,
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
-                          ),
-                          12.sbH,
-                          Flexible(
-                            child: AutoSizeText(
-                              "Don’t import any unfamiliar seed phrase or private key. MXE will never provide such information and if anyone does, beware of potential scams.",
-                              style: AppTextStyle.labelMdRegular
-                                  .copyWith(color: AppColors.bgContrast),
-                              textAlign: TextAlign.left,
+                            12.sbH,
+                            Container(
+                              padding: const EdgeInsets.all(8),
+                              decoration: BoxDecoration(
+                                  color: AppColors.white,
+                                  borderRadius: BorderRadius.circular(8)),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Flexible(
+                                    child: AutoSizeText(
+                                      "You are in Control",
+                                      style: AppTextStyle.labelMdBold.copyWith(
+                                          color: AppColors.bgContrast),
+                                      textAlign: TextAlign.left,
+                                    ),
+                                  ),
+                                  12.sbH,
+                                  Flexible(
+                                    child: AutoSizeText(
+                                      "MXE never saves your seed phrase or private key. Keep them safe and be at alert as your assets can be stolen if your seed phrase or private key is stolen",
+                                      style: AppTextStyle.labelMdRegular
+                                          .copyWith(
+                                              color: AppColors.bgContrast),
+                                      textAlign: TextAlign.left,
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
-                          ),
-                        ],
+                            32.sbH,
+                            16.sbH,
+                            const Spacer(
+                              flex: 3,
+                            ),
+                            UiButton(
+                              text: "Okay",
+                              onPressed: onSubmit,
+                            ),
+                            24.sbH,
+                          ],
+                        ),
                       ),
                     ),
-                    12.sbH,
-                    Container(
-                      padding: const EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                          color: AppColors.white,
-                          borderRadius: BorderRadius.circular(8)),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Flexible(
-                            child: AutoSizeText(
-                              "You are in Control",
-                              style: AppTextStyle.labelMdBold
-                                  .copyWith(color: AppColors.bgContrast),
-                              textAlign: TextAlign.left,
+                  ),
+                );
+              case 1:
+                return SingleChildScrollView(
+                  child: ClipRRect(
+                    borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(20),
+                        topRight: Radius.circular(20)),
+                    child: Container(
+                      height: height(context) - 100,
+                      padding: EdgeInsets.only(
+                          // right: 20,
+                          // left: 20,
+                          bottom: MediaQuery.of(context).viewInsets.bottom),
+                      color: AppColors.bgColor,
+                      // height: 500,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 16.0, vertical: 20.0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const BackButton(),
+                            Center(
+                                child: SvgPicture.asset('security-tips'.svg)),
+                            16.0.sbH,
+                            header("Security Tips", usePadding: false),
+                            24.0.sbH,
+                            Container(
+                              padding: const EdgeInsets.all(8),
+                              decoration: BoxDecoration(
+                                  color: AppColors.white,
+                                  borderRadius: BorderRadius.circular(8)),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  12.sbH,
+                                  Flexible(
+                                    child: AutoSizeText(
+                                      "Your MXE Wallet is a decentralized wallet. This means MXE doesn’t store your seed phrase and private key.\n\nThese are keys to your wallet, so keep them safe and only for yourself.\n\nIf this is compromised by anyone, you can lose your assets.",
+                                      style: AppTextStyle.labelMdBold.copyWith(
+                                          color: AppColors.bgContrast),
+                                      textAlign: TextAlign.left,
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
-                          ),
-                          12.sbH,
-                          Flexible(
-                            child: AutoSizeText(
-                              "MXE never saves your seed phrase or private key. Keep them safe and be at alert as your assets can be stolen if your seed phrase or private key is stolen",
-                              style: AppTextStyle.labelMdRegular
-                                  .copyWith(color: AppColors.bgContrast),
-                              textAlign: TextAlign.left,
+                            12.sbH,
+                            16.sbH,
+                            const Spacer(
+                              flex: 3,
                             ),
-                          ),
-                        ],
+                            UiButton(
+                              text: "I Understand",
+                              onPressed: onSubmit,
+                            ),
+                            24.sbH,
+                          ],
+                        ),
                       ),
                     ),
-                    32.sbH,
-                    16.sbH,
-                    const Spacer(
-                      flex: 3,
+                  ),
+                );
+
+              default:
+                return SingleChildScrollView(
+                  child: ClipRRect(
+                    borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(20),
+                        topRight: Radius.circular(20)),
+                    child: Container(
+                      height: height(context) - 100,
+                      padding: EdgeInsets.only(
+                          // right: 20,
+                          // left: 20,
+                          bottom: MediaQuery.of(context).viewInsets.bottom),
+                      color: AppColors.bgColor,
+                      // height: 500,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 16.0, vertical: 20.0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const BackButton(),
+                            Center(
+                                child: SvgPicture.asset('security-tips'.svg)),
+                            16.0.sbH,
+                            header("Security Tips", usePadding: false),
+                            24.0.sbH,
+                            Container(
+                              padding: const EdgeInsets.all(8),
+                              decoration: BoxDecoration(
+                                  color: AppColors.white,
+                                  borderRadius: BorderRadius.circular(8)),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Flexible(
+                                    child: AutoSizeText(
+                                      "Beware of Scams",
+                                      style: AppTextStyle.labelMdBold.copyWith(
+                                          color: AppColors.bgContrast),
+                                      textAlign: TextAlign.left,
+                                    ),
+                                  ),
+                                  12.sbH,
+                                  Flexible(
+                                    child: AutoSizeText(
+                                      "Don’t import any unfamiliar seed phrase or private key. MXE will never provide such information and if anyone does, beware of potential scams.",
+                                      style: AppTextStyle.labelMdRegular
+                                          .copyWith(
+                                              color: AppColors.bgContrast),
+                                      textAlign: TextAlign.left,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            12.sbH,
+                            Container(
+                              padding: const EdgeInsets.all(8),
+                              decoration: BoxDecoration(
+                                  color: AppColors.white,
+                                  borderRadius: BorderRadius.circular(8)),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Flexible(
+                                    child: AutoSizeText(
+                                      "You are in Control",
+                                      style: AppTextStyle.labelMdBold.copyWith(
+                                          color: AppColors.bgContrast),
+                                      textAlign: TextAlign.left,
+                                    ),
+                                  ),
+                                  12.sbH,
+                                  Flexible(
+                                    child: AutoSizeText(
+                                      "MXE never saves your seed phrase or private key. Keep them safe and be at alert as your assets can be stolen if your seed phrase or private key is stolen",
+                                      style: AppTextStyle.labelMdRegular
+                                          .copyWith(
+                                              color: AppColors.bgContrast),
+                                      textAlign: TextAlign.left,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            32.sbH,
+                            16.sbH,
+                            const Spacer(
+                              flex: 3,
+                            ),
+                            UiButton(
+                              text: "Okay",
+                              onPressed: onSubmit,
+                            ),
+                            24.sbH,
+                          ],
+                        ),
+                      ),
                     ),
-                    UiButton(
-                      text: "Okay",
-                      onPressed: onSubmit,
-                    ),
-                    24.sbH,
-                  ],
-                ),
-              ),
-            ),
-          ),
+                  ),
+                );
+            }
+          },
         ),
       ),
     );

@@ -69,6 +69,8 @@ dependencies:
   flutter_animate: ^4.5.0
   lottie: ^2.7.0
   otp_timer_button: ^1.1.1
+  simple_rich_text: ^2.0.49
+  cached_network_image: ^3.3.0
 
 dev_dependencies:
   flutter_test:

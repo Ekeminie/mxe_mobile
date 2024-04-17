@@ -3,10 +3,10 @@ import 'package:flutter_overlay_loader/flutter_overlay_loader.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mxe_mobile/base.ui.dart';
 import 'package:mxe_mobile/core/styles/color-styles.dart';
-import 'package:mxe_mobile/ui/cards/card.ui.dart';
 import 'package:mxe_mobile/ui/crypto/home/home-tab.ui.dart';
 import 'package:mxe_mobile/ui/crypto/home/home.vm.dart';
 import 'package:mxe_mobile/ui/crypto/home/nav_model.dart';
+import 'package:mxe_mobile/ui/crypto/trade/trade-tab-ui.dart';
 import 'package:mxe_mobile/ui/profile/profile.ui.dart';
 import 'package:mxe_mobile/utils/widget_extensions.dart';
 import 'package:visibility_detector/visibility_detector.dart';
@@ -90,7 +90,7 @@ class _CryptoBottomNavPageState extends State<CryptoBottomNavPage> {
             body: Container(
               child: <Widget>[
                 const CryptoHomePage(),
-                const CardPage(),
+                const TradePage(),
                 const ProfilePage(),
               ].elementAt(model.selectedIndex),
             ),

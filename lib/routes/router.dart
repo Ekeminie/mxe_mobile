@@ -31,12 +31,19 @@ import 'package:mxe_mobile/ui/bills/electricity/review-electricity.ui.dart';
 import 'package:mxe_mobile/ui/cards/create-card/create-card.ui.dart';
 import 'package:mxe_mobile/ui/cards/topup.ui.dart';
 import 'package:mxe_mobile/ui/cards/withdraw.ui.dart';
+import 'package:mxe_mobile/ui/crypto/home/backup/backup.ui.dart';
 import 'package:mxe_mobile/ui/crypto/home/bottom_nav_page.dart';
 import 'package:mxe_mobile/ui/crypto/home/drawer-menu.dart';
 import 'package:mxe_mobile/ui/crypto/home/wallet/manage-wallet.dart';
 import 'package:mxe_mobile/ui/crypto/home/wallet/view-wallet.dart';
 import 'package:mxe_mobile/ui/crypto/intro/crypto-onboarding.dart';
 import 'package:mxe_mobile/ui/crypto/notifications/crypto-notifications.io.dart';
+import 'package:mxe_mobile/ui/crypto/trade/crypto-trade/crypto-trade.ui.dart';
+import 'package:mxe_mobile/ui/crypto/trade/currency/about-currency.dart';
+import 'package:mxe_mobile/ui/crypto/trade/currency/currency-view-page.dart';
+import 'package:mxe_mobile/ui/crypto/trade/giftcard-trade/add-account/add-account.dart';
+import 'package:mxe_mobile/ui/crypto/trade/giftcard-trade/giftcard-details.ui.dart';
+import 'package:mxe_mobile/ui/crypto/trade/giftcard-trade/giftcard-success.dart';
 import 'package:mxe_mobile/ui/home/bottom_nav_page.dart';
 import 'package:mxe_mobile/ui/home/convert/conversion-success.dart';
 import 'package:mxe_mobile/ui/home/convert/convert.ui.dart';
@@ -282,6 +289,26 @@ class Routers {
       case Routes.manageCryptoWallet:
         return transitionBuilder(
             child: const ManageCryptoWallet(), begin: const Offset(0.5, 0));
+      case Routes.backUpCryptoWallet:
+        return transitionBuilder(
+            child: const CryptoWalletBackupPage(), begin: const Offset(0.5, 0));
+      case Routes.currencyViewPageRoute:
+        TAsset v = args as TAsset;
+        return transitionBuilder(
+            child: ViewCurrencyPage(asset: v), begin: const Offset(0.5, 0));
+      case Routes.aboutCurrencyPage:
+        TAsset v = args as TAsset;
+        return transitionBuilder(
+            child: AboutCurrencyPage(asset: v), begin: const Offset(0.5, 0));
+      case Routes.giftCardDetailsPage:
+        return transitionBuilder(
+            child: const GiftCardDetailsPage(), begin: const Offset(0.5, 0));
+      case Routes.addAccountPageRoute:
+        return transitionBuilder(
+            child: const AddAccountPage(), begin: const Offset(0.5, 0));
+      case Routes.giftCardSuccessPage:
+        return transitionBuilder(
+            child: const GiftSuccessPage(), begin: const Offset(0.5, 0));
 
       default:
         return MaterialPageRoute(builder: (_) => const PhoneNumberAuthPage());

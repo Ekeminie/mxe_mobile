@@ -3,6 +3,7 @@ import 'package:mxe_mobile/ui/bills/bills-beneficiaries/bills-beneficiaries.ui.d
 
 class TransferRepository {
   TransferCurrency? sendCurrency;
+  GiftCardCurrencyEnum? giftCardCurrency;
   num amount = 0;
   bool get isLocalTransfer => sendCurrency == TransferCurrency.ngn;
 
