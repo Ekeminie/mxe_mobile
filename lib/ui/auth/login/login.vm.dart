@@ -102,6 +102,10 @@ class LoginViewModel extends BaseViewModel {
   LoginRequest get request =>
       LoginRequest(email: _email!.trim(), password: _password!.trim());
 
+  t() {
+    navigationService.navigateTo(Routes.homeRoute);
+  }
+
   login() async {
     //kill the  keyboard
     dropKeyboard();

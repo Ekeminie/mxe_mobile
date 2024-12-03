@@ -38,6 +38,7 @@ import 'package:mxe_mobile/ui/crypto/home/wallet/manage-wallet.dart';
 import 'package:mxe_mobile/ui/crypto/home/wallet/view-wallet.dart';
 import 'package:mxe_mobile/ui/crypto/intro/crypto-onboarding.dart';
 import 'package:mxe_mobile/ui/crypto/notifications/crypto-notifications.io.dart';
+import 'package:mxe_mobile/ui/crypto/recieve/receive-asset.ui.dart';
 import 'package:mxe_mobile/ui/crypto/trade/crypto-trade/crypto-trade.ui.dart';
 import 'package:mxe_mobile/ui/crypto/trade/currency/about-currency.dart';
 import 'package:mxe_mobile/ui/crypto/trade/currency/currency-view-page.dart';
@@ -309,6 +310,9 @@ class Routers {
       case Routes.giftCardSuccessPage:
         return transitionBuilder(
             child: const GiftSuccessPage(), begin: const Offset(0.5, 0));
+      case Routes.receiveAssetsPage:
+        return transitionBuilder(
+            child: const ReceiveAssetPage(), begin: const Offset(0.5, 0));
 
       default:
         return MaterialPageRoute(builder: (_) => const PhoneNumberAuthPage());

@@ -181,7 +181,9 @@ class _WelcomeBackPageState extends State<WelcomeBackPage> {
                           model.password = value;
                           // model.otp = value;
                           if (model.password!.length == 4) {
-                            model.emailAndPasswordLogin();
+                            model.navigationService
+                                .navigateTo(Routes.homeRoute);
+                            // model.emailAndPasswordLogin();
                           }
                         },
                         onSubmitted: (value) {

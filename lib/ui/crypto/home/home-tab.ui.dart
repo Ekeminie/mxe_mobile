@@ -142,7 +142,7 @@ class _CryptoHomePageState extends State<CryptoHomePage>
                                     ),
                                   ),
                                 ),
-                              )
+                              ),
                             ],
                           ),
                         ),

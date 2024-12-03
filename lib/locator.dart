@@ -33,6 +33,7 @@ import 'package:mxe_mobile/ui/crypto/home/home.vm.dart';
 import 'package:mxe_mobile/ui/crypto/home/wallet/wallet.vm.dart';
 import 'package:mxe_mobile/ui/crypto/intro/crypto-onboarding.vm.dart';
 import 'package:mxe_mobile/ui/crypto/notifications/crypto-notifications.vm.dart';
+import 'package:mxe_mobile/ui/crypto/recieve/receive-asset.vm.dart';
 import 'package:mxe_mobile/ui/crypto/trade/giftcard-trade/giftcard.vm.dart';
 import 'package:mxe_mobile/ui/crypto/trade/trade-tab.vm.dart';
 import 'package:mxe_mobile/ui/home/convert/convert.vm.dart';
@@ -113,6 +114,7 @@ dependenciesInjectorSetup() {
   getIt.registerFactory<BackUpCryptoViewModel>(() => BackUpCryptoViewModel());
   getIt.registerFactory<TradeHomeViewModel>(() => TradeHomeViewModel());
   getIt.registerFactory<GiftCardViewModel>(() => GiftCardViewModel());
+  getIt.registerFactory<ReceiveAssetsViewModel>(() => ReceiveAssetsViewModel());
   // Services
 
   getIt.registerLazySingleton<NavigationService>(() => NavigationService());

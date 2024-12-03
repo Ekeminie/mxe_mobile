@@ -110,8 +110,8 @@ class _CryptoWalletPageState extends State<CryptoWalletPage> {
                         title: "Send",
                         icon: "c_send"),
                     ActionItem(
-                        onTap: () =>
-                            Navigator.pushNamed(context, Routes.billsPageRoute),
+                        onTap: () => Navigator.pushNamed(
+                            context, Routes.receiveAssetsPage),
                         title: "Receive",
                         icon: "c_receive"),
                     ActionItem(

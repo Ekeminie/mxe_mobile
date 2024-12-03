@@ -162,4 +162,5 @@ class Routes {
   static const String giftCardDetailsPage = '/giftCardDetailsPage';
   static const String addAccountPageRoute = '/addAccountPageRoute';
   static const String giftCardSuccessPage = '/giftCardSuccessPage';
+  static const String receiveAssetsPage = '/receiveAssetsPage';
 }
