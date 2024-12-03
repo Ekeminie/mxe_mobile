@@ -32,20 +32,14 @@ class _WelcomeBackPageState extends State<WelcomeBackPage> {
                 child: Container(
                   height: 100,
                   margin: EdgeInsets.symmetric(horizontal: 16.w, vertical: 5),
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
-                  decoration: BoxDecoration(
-                      color: AppColors.subtleAccent,
-                      borderRadius: BorderRadius.circular(12)),
+                  padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
+                  decoration: BoxDecoration(color: AppColors.subtleAccent, borderRadius: BorderRadius.circular(12)),
                   child: Center(
                     child: ValueListenableBuilder(
                       valueListenable: model.userService.userCredentials,
                       builder: (context, user, _) => Text(
                         "Not ${user.firstName?.capitalize()}?",
-                        style: GoogleFonts.plusJakartaSans(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w700,
-                            color: AppColors.boldSemantic),
+                        style: GoogleFonts.plusJakartaSans(fontSize: 16, fontWeight: FontWeight.w700, color: AppColors.boldSemantic),
                       ),
                     ),
                   ),
@@ -83,10 +77,7 @@ class _WelcomeBackPageState extends State<WelcomeBackPage> {
                         padding: const EdgeInsets.symmetric(horizontal: 16.0),
                         child: Text(
                           "Please confirm your PIN to access your account",
-                          style: GoogleFonts.plusJakartaSans(
-                              fontWeight: FontWeight.w400,
-                              fontSize: 16,
-                              color: AppColors.grey),
+                          style: GoogleFonts.plusJakartaSans(fontWeight: FontWeight.w400, fontSize: 16, color: AppColors.grey),
                           textAlign: TextAlign.center,
                         ),
                       ),
@@ -103,17 +94,13 @@ class _WelcomeBackPageState extends State<WelcomeBackPage> {
                               ? Column(
                                   children: [
                                     GestureDetector(
-                                      onTap: () => Navigator.pushNamed(
-                                          context, Routes.resetPinPageRoute),
+                                      onTap: () => Navigator.pushNamed(context, Routes.resetPinPageRoute),
                                       child: Center(
                                         child: Padding(
                                           padding: EdgeInsets.only(top: 16.h),
                                           child: Text(
                                             "Reset Pin ?",
-                                            style: GoogleFonts.plusJakartaSans(
-                                                color: AppColors.moderateBlue,
-                                                fontWeight: FontWeight.w700,
-                                                fontSize: 16.sp),
+                                            style: GoogleFonts.plusJakartaSans(color: AppColors.moderateBlue, fontWeight: FontWeight.w700, fontSize: 16.sp),
                                           ),
                                         ),
                                       ),
@@ -121,14 +108,10 @@ class _WelcomeBackPageState extends State<WelcomeBackPage> {
                                     Container(
                                       margin: const EdgeInsets.only(top: 12),
                                       padding: const EdgeInsets.all(12),
-                                      decoration: BoxDecoration(
-                                          color: AppColors.errorCodeBG,
-                                          borderRadius:
-                                              BorderRadius.circular(12)),
+                                      decoration: BoxDecoration(color: AppColors.errorCodeBG, borderRadius: BorderRadius.circular(12)),
                                       child: Center(
                                         child: Row(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
+                                          crossAxisAlignment: CrossAxisAlignment.center,
                                           children: [
                                             GestureDetector(
                                               onTap: () => model.reverseError(),
@@ -143,13 +126,7 @@ class _WelcomeBackPageState extends State<WelcomeBackPage> {
                                               child: Center(
                                                 child: Text(
                                                   model.errorMessage_ ?? "",
-                                                  style: GoogleFonts
-                                                      .plusJakartaSans(
-                                                          color: AppColors
-                                                              .errorCode,
-                                                          fontWeight:
-                                                              FontWeight.w700,
-                                                          fontSize: 16.sp),
+                                                  style: GoogleFonts.plusJakartaSans(color: AppColors.errorCode, fontWeight: FontWeight.w700, fontSize: 16.sp),
                                                   textAlign: TextAlign.center,
                                                 ),
                                               ),
@@ -164,8 +141,7 @@ class _WelcomeBackPageState extends State<WelcomeBackPage> {
                         },
                         controller: model.pinController,
                         key: const Key("otp-field"),
-                        androidSmsAutofillMethod:
-                            AndroidSmsAutofillMethod.smsUserConsentApi,
+                        androidSmsAutofillMethod: AndroidSmsAutofillMethod.smsUserConsentApi,
                         listenForMultipleSmsOnAndroid: true,
                         defaultPinTheme: defaultPinTheme,
                         focusedPinTheme: focusedPinTheme,
@@ -181,8 +157,7 @@ class _WelcomeBackPageState extends State<WelcomeBackPage> {
                           model.password = value;
                           // model.otp = value;
                           if (model.password!.length == 4) {
-                            model.navigationService
-                                .navigateTo(Routes.homeRoute);
+                            model.navigationService.navigateTo(Routes.homeRoute);
                             // model.emailAndPasswordLogin();
                           }
                         },
